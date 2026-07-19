@@ -1,0 +1,463 @@
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.dashboard-title{
+
+    color:#FFFFFF;
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-top:10px;
+
+    margin-bottom:25px;
+
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.dashboard-subtitle{
+
+    color:#FFFFFF;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    margin-top:20px;
+
+    margin-bottom:20px;
+
+}
+
+
+/* =====================================================
+   KPI CARD
+===================================================== */
+
+.metric-card-customer{
+
+    min-height:135px;
+
+    padding:22px;
+
+    border-radius:18px;
+
+    transition:.25s;
+
+    border:1px solid;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.30);
+
+}
+
+
+/* =====================================================
+   KPI HOVER
+===================================================== */
+
+.metric-card-customer:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/* =====================================================
+   VIP
+===================================================== */
+
+.metric-vip{
+
+    background:linear-gradient(
+        180deg,
+        #5F4700 0%,
+        #3E2F00 100%
+    );
+
+    border-color:#FACC15;
+
+    box-shadow:
+        0 0 18px rgba(250,204,21,.20),
+        0 8px 24px rgba(0,0,0,.35);
+
+}
+
+.metric-vip:hover{
+
+    box-shadow:
+        0 0 25px rgba(250,204,21,.35),
+        0 12px 30px rgba(0,0,0,.40);
+
+}
+
+
+/* =====================================================
+   LOYAL
+===================================================== */
+
+.metric-loyal{
+
+    background:linear-gradient(
+        180deg,
+        #215A38 0%,
+        #1A472D 100%
+    );
+
+    border-color:#22C55E;
+
+}
+
+.metric-loyal:hover{
+
+    box-shadow:
+        0 0 20px rgba(34,197,94,.25);
+
+}
+
+
+/* =====================================================
+   REGULAR
+===================================================== */
+
+.metric-regular{
+
+    background:linear-gradient(
+        180deg,
+        #3E63C8 0%,
+        #2B4DA8 100%
+    );
+
+    border-color:#60A5FA;
+
+}
+
+.metric-regular:hover{
+
+    box-shadow:
+        0 0 20px rgba(96,165,250,.25);
+
+}
+
+
+/* =====================================================
+   AT RISK
+===================================================== */
+
+.metric-atrisk{
+
+    background:linear-gradient(
+        180deg,
+        #A82F2F 0%,
+        #8B2424 100%
+    );
+
+    border-color:#EF4444;
+
+}
+
+.metric-atrisk:hover{
+
+    box-shadow:
+        0 0 20px rgba(239,68,68,.25);
+
+}
+
+
+/* =====================================================
+   KPI LABEL
+===================================================== */
+
+.metric-label{
+
+    color:#E2E8F0;
+
+    font-size:16px;
+
+    font-weight:650;
+
+    text-transform:uppercase;
+
+    letter-spacing:.8px;
+
+    margin-bottom:15px;
+
+}
+
+
+/* =====================================================
+   KPI VALUE
+===================================================== */
+
+.metric-value{
+
+    color:white;
+
+    font-size:46px;
+
+    font-weight:700;
+
+    line-height:1;
+
+}
+
+
+/* =====================================================
+   PLOTLY CARD
+===================================================== */
+
+div[data-testid="stPlotlyChart"]{
+
+    background:linear-gradient(
+        180deg,
+        #24324A 0%,
+        #202C42 100%
+    );
+
+    border:1px solid rgba(126,195,255,.20);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.30);
+
+    transition:.25s;
+
+}
+
+div[data-testid="stPlotlyChart"]:hover{
+
+    border-color:#7EC3FF;
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.40),
+        0 0 18px rgba(126,195,255,.10);
+
+}
+
+/* =====================================================
+   EXECUTIVE TABLE
+===================================================== */
+
+.executive-table{
+
+    background:linear-gradient(
+        180deg,
+        #24324A 0%,
+        #202C42 100%
+    );
+
+    border:1px solid rgba(126,195,255,.20);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.30);
+
+    margin-top:14px;
+
+    margin-bottom:25px;
+
+    transition:.25s;
+
+}
+
+.executive-table:hover{
+
+    border-color:#7EC3FF;
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.40),
+        0 0 18px rgba(126,195,255,.10);
+
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.executive-table table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.executive-table th{
+
+    background:#2B364A;
+
+    color:#AFC8FF;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    text-align:left;
+
+    padding:18px 22px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+/* =====================================================
+   ROWS
+===================================================== */
+
+.executive-table td{
+
+    color:#F8FAFC;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    text-align:left;
+
+    padding:16px 22px;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+/* =====================================================
+   STRIPES
+===================================================== */
+
+.executive-table tbody tr:nth-child(even){
+
+    background:rgba(255,255,255,.02);
+
+}
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.executive-table tbody tr:hover{
+
+    background:rgba(59,130,246,.08);
+
+}
+
+/* =====================================================
+   LAST ROW
+===================================================== */
+
+.executive-table tbody tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1200px){
+
+.executive-table th{
+
+    font-size:16px;
+
+    padding:14px 16px;
+
+}
+
+.executive-table td{
+
+    font-size:14px;
+
+    padding:13px 16px;
+
+}
+
+}
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.dashboard-divider{
+
+    margin-top:35px;
+
+    margin-bottom:35px;
+
+    border-bottom:1px solid #334155;
+
+}
+
+
+/* =====================================================
+   MODEBAR
+===================================================== */
+
+.modebar{
+
+    display:none !important;
+
+}
+
+
+/* =====================================================
+   COLUMN SPACING
+===================================================== */
+
+[data-testid="column"]{
+
+    padding-left:8px;
+
+    padding-right:8px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1200px){
+
+.dashboard-title{
+
+    font-size:34px;
+
+}
+
+.dashboard-subtitle{
+
+    font-size:26px;
+
+}
+
+.metric-value{
+
+    font-size:38px;
+
+}
+
+.metric-card-customer{
+
+    min-height:90px;
+
+    padding:18px;
+
+}
+
+}

@@ -1,0 +1,198 @@
+/* =====================================================
+   GLOBAL APPLICATION
+===================================================== */
+
+.stApp{
+
+    background: linear-gradient(
+        180deg,
+        #0B1220 0%,
+        #101827 100%
+    );
+
+    color:#F8FAFC;
+
+    font-family:"Segoe UI",sans-serif;
+
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.block-container{
+
+    max-width:94%;
+
+    padding-top:3.5rem;
+
+
+
+}
+
+
+/* =====================================================
+   APPLICATION TITLE
+===================================================== */
+
+.main-title{
+
+    text-align:center;
+
+    color:white;
+
+    font-size:46px;
+
+    font-weight:800;
+    margin-bottom:10px;
+
+}
+
+
+/* =====================================================
+   HEADINGS
+===================================================== */
+
+h1,h2,h3,h4,h5,h6{
+
+    color:white;
+
+    font-weight:700;
+
+}
+
+p{
+
+    color:#CBD5E1;
+
+}
+
+
+/* =====================================================
+   FILE UPLOADER
+===================================================== */
+
+[data-testid="stFileUploader"]{
+
+    background:#1E293B;
+
+    border:1px solid #334155;
+
+    border-radius:20px;
+
+    padding:22px;
+
+    margin-top:20px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.20);
+
+}
+
+/* =====================================================
+   TABS
+===================================================== */
+
+.stTabs [data-testid="stMarkdownContainer"] p {
+
+    font-size: 23px !important;
+
+    font-weight: 600 !important;
+
+    color: #CBD5E1 !important;
+
+}
+
+.stTabs button {
+
+    height:60px !important;
+
+    padding:0 39px !important;
+
+}
+
+.stTabs button[aria-selected="true"] {
+
+    border-bottom:4px solid #3B82F6 !important;
+
+    background:rgba(59,130,246,.08);
+
+}
+
+.stTabs button[aria-selected="true"] [data-testid="stMarkdownContainer"] p {
+
+    color: white !important;
+
+}
+
+.stTabs button:hover{
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:8px;
+
+}
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+[data-testid="stSidebar"]{
+
+    background:#111827;
+
+    border-right:1px solid #334155;
+
+}
+
+[data-testid="stSidebar"] *{
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   HORIZONTAL LINE
+===================================================== */
+
+hr{
+
+    border:none;
+
+    border-top:1px solid #334155;
+
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0F172A;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#334155;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#475569;
+
+}
+

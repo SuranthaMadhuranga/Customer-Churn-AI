@@ -1,0 +1,529 @@
+/* =====================================================
+   Section Title
+===================================================== */
+
+.whatif-section-title{
+    font-size:26px;
+    font-weight:700;
+    color:#F8FAFC;
+    margin:15px 0 20px 0;
+}
+
+
+/* =====================================================
+   Customer Summary Card
+===================================================== */
+
+.summary-card{
+
+    background: linear-gradient(
+        180deg,
+        #26344D 0%,
+        #202C42 100%
+    );
+
+    border:1px solid rgba(126,195,255,.18);
+
+    border-radius:20px;
+
+    padding:32px;
+
+    margin-top:12px;
+
+    margin-bottom:35px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+
+    transition:all .25s ease;
+
+}
+
+.summary-card:hover{
+
+    border-color:rgba(126,195,255,.45);
+
+    box-shadow:
+        0 14px 36px rgba(0,0,0,.42),
+        0 0 18px rgba(126,195,255,.10);
+
+}
+
+
+/* =====================================================
+   Summary Row
+===================================================== */
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px 12px;
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+    transition:background .2s ease;
+
+}
+
+.summary-row:hover{
+
+    background:rgba(255,255,255,.025);
+
+    border-radius:10px;
+
+}
+
+.summary-row:last-child{
+
+    border-bottom:none;
+
+}
+
+
+/* =====================================================
+   Summary Label
+===================================================== */
+
+.summary-label{
+
+    color:#B8C7DB;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:.3px;
+
+}
+
+
+/* =====================================================
+   Summary Value
+===================================================== */
+
+.summary-value{
+
+    color:#FFFFFF;
+
+    font-size:16px;
+
+    font-weight:700;
+
+}
+
+
+
+
+/* =====================================================
+   Result Card
+===================================================== */
+
+.result-card{
+
+    background:#111827;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    border:1px solid rgba(59,130,246,.25);
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+    margin-bottom:15px;
+
+}
+
+
+.result-title{
+
+    display:block;
+
+    color:#CBD5E1;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+
+.result-probability{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    color:white;
+
+    margin-bottom:18px;
+
+}
+
+
+.result-risk{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+   Risk Colours
+===================================================== */
+
+.low-risk{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+.medium-risk{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+.at-risk{
+
+    background:#FFEDD5;
+
+    color:#C2410C;
+
+}
+
+.high-risk{
+
+    background:#FEE2E2;
+
+    color:#DC2626;
+
+}
+
+
+/* =====================================================
+   Risk Change
+===================================================== */
+
+.risk-change{
+
+    text-align:center;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-top:10px;
+
+}
+
+.risk-up{
+
+    background:#d78888;
+
+    color:#ca1e1e;
+
+}
+
+.risk-down{
+
+    background:#71ca90;
+
+    color:#0f6e31;
+
+}
+
+.risk-same{
+
+    background:#E2E8F0;
+
+    color:#2e3e55;
+
+}
+
+
+/* =====================================================
+   Divider
+===================================================== */
+
+hr{
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+
+/* ==================================
+   CUSTOMER SETTINGS TITLE
+================================== */
+
+h2{
+    color:white !important;
+    text-align: center;
+}
+
+/* ==================================
+   LABELS
+================================== */
+
+.stSelectbox label,
+.stNumberInput label{
+
+    color:#E2E8F0 !important;
+
+    font-size:15px !important;
+
+    font-weight:600 !important;
+
+    margin-bottom:6px;
+
+}
+
+
+/* ==================================
+   STREAMLIT INPUTS
+================================== */
+
+/* Input Containers */
+
+.stSelectbox,
+.stNumberInput,
+.stTextInput{
+
+    margin-bottom:18px;
+    padding-left:12px;
+
+}
+
+/* ==================================
+   SELECTBOX
+================================== */
+
+/* Main Select Box */
+
+div[data-testid="stSelectbox"] > div{
+
+    border-radius:12px;
+
+}
+
+/* ComboBox Container */
+
+div[data-testid="stSelectbox"] [role="group"]{
+
+    height:46px !important;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+/* Input */
+
+div[data-testid="stSelectbox"] input{
+
+    height:46px !important;
+
+    font-size:15px;
+
+}
+
+/* Dropdown Button */
+
+div[data-testid="stSelectbox"] button{
+
+    width:40px !important;
+
+    min-width:40px !important;
+
+    height:46px !important;
+
+    padding:0 !important;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* Arrow */
+
+div[data-testid="stSelectbox"] button svg{
+
+    width:16px !important;
+
+    height:16px !important;
+
+}
+
+
+
+/* ==================================
+   NUMBER INPUT
+================================== */
+
+/* Container */
+
+div[data-testid="stNumberInputContainer"]{
+
+    height:46px !important;
+
+}
+
+/* Input */
+
+div[data-testid="stNumberInputContainer"] input{
+
+    height:46px !important;
+
+    font-size:15px;
+
+}
+
+/* +/- Wrapper */
+
+div[data-testid="stNumberInputContainer"] > div:last-child{
+
+    width:38px !important;
+    min-width:38px !important;
+
+    height:46px !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+
+    justify-content:space-between !important;
+    align-items:center !important;
+
+}
+
+/* Step Buttons */
+
+button[data-testid="stNumberInputStepDown"],
+button[data-testid="stNumberInputStepUp"]{
+
+    width:38px !important;
+    min-width:38px !important;
+
+    height:23px !important;
+    min-height:23px !important;
+
+    padding:0 !important;
+    margin:0 !important;
+
+    display:flex !important;
+
+    justify-content:center !important;
+    align-items:center !important;
+
+    box-sizing:border-box;
+
+}
+
+/* Icons */
+
+button[data-testid="stNumberInputStepDown"] svg,
+button[data-testid="stNumberInputStepUp"] svg{
+
+    width:12px !important;
+    height:12px !important;
+
+}
+
+/* ==================================
+   BUTTON CONTAINER
+================================== */
+
+div[data-testid="stButton"]{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:-4px;
+
+}
+
+/* ==================================
+   SIMULATE BUTTON
+================================== */
+
+div[data-testid="stButton"] > button{
+
+    width:380px;
+
+    height:60px;
+
+    background:linear-gradient(
+        135deg,
+        #3B82F6,
+        #8B5CF6
+    );
+
+    color:white;
+
+    border:none;
+
+    border-radius:15px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+    box-shadow:
+        0 6px 20px rgba(59,130,246,.30);
+
+}
+
+div[data-testid="stButton"] > button:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.08);
+
+    box-shadow:
+        0 10px 25px rgba(139,92,246,.40);
+
+}
+
+div[data-testid="stButton"] > button:active{
+
+    transform:scale(.98);
+
+}
+
+
+
+

@@ -1,0 +1,217 @@
+/* =====================================================
+   DASHBOARD TITLE
+===================================================== */
+
+.dashboard-title{
+
+    color:white;
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-top:10px;
+
+    margin-bottom:25px;
+
+}
+
+
+/* =====================================================
+   SECTION TITLES
+===================================================== */
+
+.dashboard-subtitle{
+
+    color:white;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    margin-top:20px;
+
+    margin-bottom:20px;
+
+}
+
+
+/* =====================================================
+   KPI CARD
+===================================================== */
+
+.metric-card-dashboard{
+
+    background:#22304A;
+
+    border:1px solid #3A4A68;
+    border-top:2px solid #3B82F6;
+
+    border-radius:16px;
+
+    padding:22px;
+
+    min-height:135px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.30);
+
+    transition:all .2s ease;
+
+}
+
+.metric-card-dashboard:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 28px rgba(0,0,0,.35);
+
+}
+
+
+/* =====================================================
+   KPI LABEL
+===================================================== */
+
+.metric-label{
+
+    color:#CBD5E1;
+
+    font-size:16px;
+
+    font-weight:650;
+
+    text-transform:uppercase;
+
+    letter-spacing:.8px;
+
+    margin-bottom:10px;
+
+}
+
+
+/* =====================================================
+   KPI VALUE
+===================================================== */
+
+.metric-value{
+
+    color:#FFFFFF;
+
+    font-size:45px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    margin:0;
+
+}
+
+
+/* =====================================================
+   PLOTLY CHART CARD
+===================================================== */
+
+div[data-testid="stPlotlyChart"]{
+
+    background:linear-gradient(
+        180deg,
+        #24324A 0%,
+        #202C42 100%
+    );
+
+    border:1px solid rgba(126,195,255,.20);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.30);
+
+    transition:.25s;
+
+}
+
+div[data-testid="stPlotlyChart"]:hover{
+
+    border-color:#7EC3FF;
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.40),
+        0 0 18px rgba(126,195,255,.10);
+
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.dashboard-divider{
+
+    margin-top:35px;
+
+    margin-bottom:35px;
+
+    border-bottom:1px solid #334155;
+
+}
+
+
+
+/* =====================================================
+   MODEBAR
+===================================================== */
+
+.modebar{
+
+    display:none !important;
+
+}
+
+
+/* =====================================================
+   METRIC SPACING
+===================================================== */
+
+[data-testid="column"]{
+
+    padding-left:8px;
+
+    padding-right:8px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1200px){
+
+.dashboard-title{
+
+    font-size:34px;
+
+}
+
+.dashboard-subtitle{
+
+    font-size:26px;
+
+}
+
+.metric-value{
+
+    font-size:40px;
+
+}
+
+.metric-card-dashboard{
+    min-height:70px;
+    padding:16px 18px;
+}
+
+}
+

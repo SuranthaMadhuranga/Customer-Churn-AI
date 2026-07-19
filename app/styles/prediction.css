@@ -1,0 +1,350 @@
+/* =====================================================
+   SUMMARY CARD
+===================================================== */
+
+.summary-card-p{
+
+    background: linear-gradient(
+        180deg,
+        #26344D 0%,
+        #202C42 100%
+    );
+
+    border: 1px solid rgba(126,195,255,.18);
+
+    border-radius: 20px;
+
+    padding: 32px;
+
+    margin-top: 12px;
+
+    margin-bottom: 35px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+
+    transition: all .25s ease;
+
+}
+
+.summary-card-p:hover{
+
+    border-color: rgba(126,195,255,.45);
+
+    box-shadow:
+        0 14px 36px rgba(0,0,0,.42),
+        0 0 18px rgba(126,195,255,.10);
+
+}
+
+
+/* =====================================================
+   SUMMARY ROW
+===================================================== */
+
+.summary-row-p{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px 12px;
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+    transition:background .2s ease;
+
+}
+
+.summary-row-p:hover{
+
+    background:rgba(255,255,255,.025);
+
+    border-radius:10px;
+
+}
+
+.summary-row-p:last-child{
+
+    border-bottom:none;
+
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.summary-label-p{
+
+    color:#CBD5E1;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    letter-spacing:.3px;
+
+}
+
+
+/* =====================================================
+   VALUE
+===================================================== */
+
+.summary-value-p{
+
+    color:#7EC3FF;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    text-align:right;
+
+}
+
+
+/* =====================================================
+   SEARCH BUTTON
+===================================================== */
+
+.stButton > button{
+
+    width:380px;
+
+    height:60px;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.2s;
+
+    margin-top:-4px;
+
+}
+
+.stButton > button:hover{
+
+    transform:translateY(-1px);
+
+}
+
+
+/* =====================================================
+   TEXT INPUT
+===================================================== */
+
+.stTextInput input{
+
+    height:52px;
+
+    width: 3600px;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    padding-left:12px;
+
+}
+
+
+
+/* =====================================================
+   PROGRESS BAR
+===================================================== */
+
+.progress-container{
+
+    margin-top:15px;
+
+    margin-bottom:22px;
+
+}
+
+.progress-track{
+
+    width:100%;
+
+    height:14px;
+
+    background:#1B2435;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    box-shadow:
+        inset 0 2px 6px rgba(0,0,0,.35);
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    border-radius:50px;
+
+    transition:width .8s ease;
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,.15);
+
+}
+
+
+/* =====================================================
+   PREDICTION CARD
+===================================================== */
+
+.prediction-card{
+
+    width:75%;
+
+    max-width:850px;
+
+    margin:18px auto 0 auto;
+
+    border-radius:18px;
+
+    padding:24px 30px;
+
+    text-align:center;
+
+    transition:.25s;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+
+}
+
+
+/* =====================================================
+   PREDICTION TITLE
+===================================================== */
+
+.prediction-title{
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#CBD5E1;
+
+    margin-bottom:12px;
+
+    letter-spacing:.4px;
+
+}
+
+
+/* =====================================================
+   PREDICTION PERCENTAGE
+===================================================== */
+
+.prediction-percent{
+
+    font-size:48px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+    line-height:1;
+
+}
+
+
+/* =====================================================
+   CUSTOMER TYPE
+===================================================== */
+
+.prediction-type{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-top:6px;
+
+    line-height:1.2;
+
+}
+
+
+/* =====================================================
+   CARD ANIMATION
+===================================================== */
+
+.prediction-card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 14px 36px rgba(0,0,0,.45);
+
+}
+
+
+
+/* ==========================
+   SHAP Cards
+========================== */
+
+.shap-card{
+
+    background:#1E293B;
+
+    border:1px solid #334155;
+
+    border-radius:14px;
+
+    padding:16px 20px;
+
+    margin-bottom:14px;
+
+    transition:.25s;
+
+}
+
+.shap-card:hover{
+
+    transform:translateY(-2px);
+
+    border-color:#3B82F6;
+
+    box-shadow:0 10px 28px rgba(59,130,246,.18);
+
+}
+
+.shap-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:white;
+
+}
+
+.shap-footer{
+
+    margin-top:8px;
+
+    color:#CBD5E1;
+
+    font-size:14px;
+
+}
