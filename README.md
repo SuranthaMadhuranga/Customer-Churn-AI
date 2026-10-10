@@ -1,119 +1,133 @@
-# 📊 Customer Churn Prediction System
+# Customer Churn Prediction System
 
-An AI-powered analytics system that uses Machine Learning and Explainable AI to predict which telecom customers are likely to leave, explain why, and test retention strategies before acting on them.
+An AI-powered customer analytics platform that combines Machine Learning and Explainable AI to predict customer churn, understand the reasons behind customer decisions, and evaluate retention strategies through interactive business intelligence.
 
 ## Overview
 
-Losing a customer costs far more than keeping one, yet most businesses only find out a customer has churned after they are already gone. This project gives a retention team an early warning. It scores every customer with a churn probability, groups them by risk, and shows the factors behind each prediction.
+Customer churn is a major challenge for businesses, as losing existing customers can negatively affect revenue, profitability, and long-term growth. Identifying customers who are likely to leave before they actually do enables businesses to take proactive retention measures.
 
-The Customer Churn Prediction System is built with Python, LightGBM, SHAP, and Streamlit. It is trained on the IBM Telco Customer Churn dataset (7,043 customers). A user uploads a customer CSV file and gets an interactive dashboard with predictions, customer segments, per-customer explanations, and a What-If simulator for testing changes such as a longer contract or added tech support.
+The **Customer Churn Prediction System** is an interactive Machine Learning application built with Python and Streamlit. Developed using the IBM Telco Customer Churn dataset containing 7,043 customer records, the system predicts churn probabilities, identifies at-risk customers, explains individual predictions using SHAP, and simulates potential retention strategies.
+
+By integrating predictive analytics, customer segmentation, and Explainable AI, the platform transforms customer data into actionable insights that support data-driven retention decisions.
 
 ## Key Features
 
-- **Churn Prediction**: Score every customer with a churn probability using a tuned LightGBM model.
-- **Business-Tuned Decision Threshold**: Flag churners at a 0.40 probability threshold instead of the default 0.50, so fewer at-risk customers are missed.
-- **Executive Dashboard**: View total customers, predicted churners, active customers, and churn rate, with interactive Plotly charts.
-- **Customer Segmentation**: Group customers into **VIP**, **Loyal**, **Regular**, and **At Risk** by churn probability.
-- **Top Customer Lists**: See the 10 customers most likely to churn and the 10 most loyal customers.
-- **Individual Prediction**: Search any customer by ID and see their churn probability, risk level, and profile.
-- **Explainable AI (SHAP)**: Show a SHAP waterfall plot and the top 6 features that pushed a prediction up or down.
-- **What-If Analysis**: Change a customer's contract, charges, services, or payment method and compare the original and simulated churn risk side by side.
+- **Churn Prediction Dashboard** — Monitor customer statistics, predicted churners, active customers, and overall churn risk.
+- **Machine Learning Prediction** — Predict customer churn probabilities using a tuned LightGBM model.
+- **Customer Risk Segmentation** — Categorize customers into VIP, Loyal, Regular, and At Risk segments.
+- **Customer Analytics** — Identify the customers most likely to leave and those with the lowest predicted churn risk.
+- **Individual Customer Prediction** — Search for a customer and explore their churn probability, risk category, and profile.
+- **Explainable AI with SHAP** — Understand the factors influencing individual predictions through SHAP waterfall plots and feature contributions.
+- **What-If Analysis** — Simulate changes to customer contracts, charges, subscribed services, and payment methods to compare potential churn risks.
+- **Interactive Visualizations** — Explore customer behavior and model predictions using interactive Plotly charts.
+- **Business-Focused Decision Threshold** — Apply a 0.40 probability threshold to identify potential churners and support retention prioritization.
 
-## Data Science and Machine Learning Modules
+## Machine Learning and AI Modules
 
 ### 1. Exploratory Data Analysis (EDA)
 
-Studies the structure of the dataset and the patterns behind churn.
+Analyzes customer information to understand churn patterns and identify factors associated with customer retention.
 
-Capabilities:
+**Capabilities:**
 
-- Analyze the distribution of churn across demographics, services, and billing.
-- Find relationships between churn and features such as contract type, tenure, and monthly charges.
-- Identify the strongest drivers: **Contract** (correlation -0.397) and **tenure** (-0.352). Customers on longer contracts, and customers who have stayed longer, are much less likely to leave.
+- Examine churn distributions across customer demographics, subscribed services, and billing information.
+- Investigate relationships between churn, contract type, customer tenure, and monthly charges.
+- Identify important churn-related patterns, including the relationship between contract type and churn (-0.397 correlation) and tenure and churn (-0.352 correlation).
 
-**Value:** Shows which customer behaviors matter before any model is built.
+**Business value:** Helps businesses understand customer behavior and identify potential retention opportunities before developing predictive models.
 
-### 2. Data Preprocessing
+### 2. Data Preprocessing and Feature Engineering
 
-Prepares the raw data for machine learning.
+Prepares customer records for Machine Learning by cleaning the data and transforming it into a suitable format.
 
-Capabilities:
+**Capabilities:**
 
-- Clean the dataset and handle missing values in `TotalCharges`.
-- Remove identifier columns such as `customerID` from training.
-- Encode categorical variables with One-Hot Encoding.
-- Scale numerical features with StandardScaler.
-- Save the fitted encoder and scaler so the app processes new data exactly as the model was trained.
+- Clean customer records and handle missing or blank values in `TotalCharges`.
+- Remove customer identifiers from model training.
+- Convert categorical variables into numerical representations using One-Hot Encoding.
+- Scale numerical features using StandardScaler.
+- Identify influential features using Mutual Information and Random Forest feature importance.
+- Save preprocessing objects to maintain consistency between training and application predictions.
 
-**Value:** Gives the models clean, consistent input and keeps training and deployment in sync.
+**Business value:** Improves data quality, supports reliable model training, and ensures new customer records are processed consistently.
 
-### 3. Feature Engineering and Selection
+### 3. Customer Churn Prediction — LightGBM
 
-Finds the features with the most influence on churn.
+Trains and evaluates multiple gradient boosting algorithms to identify customers who may discontinue a service.
 
-Capabilities:
+**Models evaluated:**
 
-- Rank features with Mutual Information scores.
-- Measure feature importance with a Random Forest model.
-- Compare statistical and model-based rankings to choose the final feature set.
+- XGBoost
+- CatBoost
+- LightGBM
 
-**Value:** Focuses the models on the signals that actually predict churn.
+**Capabilities:**
 
-### 4. Model Training and Comparison: XGBoost, CatBoost, LightGBM
+- Tune model hyperparameters using RandomizedSearchCV.
+- Optimize model selection using ROC-AUC.
+- Address class imbalance through model-specific weighting strategies.
+- Evaluate performance using accuracy, precision, recall, F1 score, and ROC-AUC.
+- Apply a custom decision threshold of 0.40 to the deployed LightGBM model.
 
-Trains and compares three gradient boosting models.
-
-Capabilities:
-
-- Tune hyperparameters with `RandomizedSearchCV`, optimizing ROC-AUC.
-- Handle class imbalance with `scale_pos_weight` (XGBoost) and balanced class weights (CatBoost).
-- Evaluate each model with accuracy, precision, recall, F1 score, and ROC-AUC.
-- Apply a custom 0.40 decision threshold to LightGBM.
-
-Test set results (1,409 customers):
+**Model Evaluation Results**
 
 | Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
-|---|---|---|---|---|---|
-| XGBoost | 0.755 | 0.526 | 0.797 | 0.633 | 0.847 |
-| CatBoost | 0.743 | 0.510 | 0.802 | 0.624 | 0.847 |
-| **LightGBM (deployed)** | **0.788** | **0.596** | 0.623 | 0.609 | 0.845 |
+|---|---:|---:|---:|---:|---:|
+| XGBoost | 75.5% | 52.6% | 79.7% | 63.3% | 0.847 |
+| CatBoost | 74.3% | 51.0% | 80.2% | 62.4% | 0.847 |
+| **LightGBM (Deployed)** | **78.8%** | **59.6%** | **62.3%** | **60.9%** | **0.845** |
 
-All three models reach a similar ROC-AUC of about 0.85. LightGBM is deployed because it has the highest accuracy and precision, so retention teams spend less effort on customers who were never going to leave.
+The evaluation was conducted on a test set containing 1,409 customers. LightGBM was selected for deployment because it achieved the highest accuracy and precision among the evaluated models.
 
-**Value:** Picks the model that best balances catching churners against raising false alarms.
+**Business value:** Helps businesses prioritize customers who may leave and allocate retention resources more effectively.
 
-### 5. Explainable AI: SHAP
+### 4. Customer Risk Segmentation
 
-Explains why the model made each prediction.
+Classifies customers into risk categories using their predicted churn probabilities.
 
-Capabilities:
+**Customer groups include:**
 
-- Build a SHAP explainer for the deployed LightGBM model.
-- Draw a waterfall plot for each customer's prediction.
-- Rank the top 6 features that raised or lowered that customer's churn risk.
+- **VIP Customers:** Predicted churn probability below 5%.
+- **Loyal Customers:** Predicted churn probability from 5% to below 15%.
+- **Regular Customers:** Predicted churn probability from 15% to below 55%.
+- **At-Risk Customers:** Predicted churn probability of 55% or higher.
 
-**Value:** Turns a black-box score into reasons a business user can understand and act on.
+**Capabilities:**
 
-### 6. What-If Simulation
+- Identify customers who require immediate retention attention.
+- Highlight customers with relatively low predicted churn risk.
+- Display the ten customers with the highest predicted churn risk.
+- Display the ten customers with the lowest predicted churn risk.
 
-Tests retention strategies before they are applied.
+**Business value:** Enables targeted customer retention strategies and helps businesses focus on the customers who need the most attention.
 
-Capabilities:
+### 5. Explainable AI — SHAP
 
-- Load any customer's current profile.
-- Edit key features: contract, monthly charges, internet service, online security, online backup, tech support, and payment method.
-- Re-run the model and compare the original and simulated churn probability and risk level.
+Uses SHAP (SHapley Additive exPlanations) to explain the predictions generated by the deployed LightGBM model.
 
-**Value:** Shows which offer is most likely to keep a specific customer, such as moving them to a yearly contract or adding tech support.
+**Capabilities:**
 
-## Customer Risk Levels
+- Generate explanations for individual customer predictions.
+- Visualize feature contributions using SHAP waterfall plots.
+- Identify the six most influential features for an individual prediction.
+- Show which features increase or decrease the model's predicted churn risk.
 
-| Segment | Churn Probability | Meaning |
-|---|---|---|
-| 👑 VIP | Below 5% | Very loyal, almost no churn risk |
-| 💚 Loyal | 5% to 15% | Stable customers |
-| 🔵 Regular | 15% to 55% | Worth watching |
-| 🔴 At Risk | 55% and above | Needs retention action now |
+**Business value:** Makes Machine Learning predictions easier to interpret, helping business users understand why a customer has been classified as potentially at risk.
+
+### 6. What-If Analysis — Retention Strategy Simulation
+
+Allows users to explore how changes to a customer's profile may affect the predicted likelihood of churn.
+
+**Capabilities:**
+
+- Select a customer and load their existing profile.
+- Modify contract type, monthly charges, internet service, online security, online backup, tech support, and payment method.
+- Recalculate the predicted churn probability using the deployed model.
+- Compare original and simulated churn probabilities and risk categories.
+
+**Business value:** Helps businesses evaluate possible retention actions before implementing them. For example, a retention team can explore whether changing a customer's contract or adding technical support changes the model's predicted churn risk.
+
+*Note: What-If results represent model-based simulations, not guaranteed outcomes or proof that a particular intervention will prevent churn.*
 
 ## Technology Stack
 
@@ -123,80 +137,71 @@ Capabilities:
 | Data Processing | Pandas, NumPy |
 | Machine Learning | Scikit-learn, LightGBM, XGBoost, CatBoost |
 | Explainable AI | SHAP |
-| Visualization | Plotly, Matplotlib, Seaborn |
-| Web Application | Streamlit, streamlit-extras, custom CSS |
-| Model Storage | Joblib |
-| Development | Jupyter Notebook |
-| Dataset | IBM Telco Customer Churn (7,043 customers, 20 features) |
-
-## Project Structure
-
-```
-Customer_Churn_AI/
-├── app/
-│   ├── churn_app.py            # Main Streamlit app (entry point)
-│   ├── dashboard.py            # Dashboard tab
-│   ├── customer_analytics.py   # Customer segmentation tab
-│   ├── prediction.py           # Individual prediction + SHAP tab
-│   ├── what_if_analysis.py     # What-If simulation tab
-│   ├── utils.py                # Model loading, preprocessing, prediction helpers
-│   └── styles/                 # CSS for each page
-├── data/                       # Raw and cleaned Telco datasets
-├── models/                     # Trained models, encoder, scaler, threshold, SHAP explainer
-├── notebooks/                  # EDA, preprocessing, feature selection, models, SHAP
-└── requirements.txt
-```
+| Data Visualization | Plotly, Matplotlib, Seaborn |
+| Web Application | Streamlit, streamlit-extras, Custom CSS |
+| Model Persistence | Joblib |
+| Development Environment | Jupyter Notebook |
+| Dataset | IBM Telco Customer Churn Dataset |
 
 ## Application Workflow
 
-1. **Explore**: Analyze the dataset and churn patterns in the EDA notebook.
-2. **Prepare**: Clean, encode, and scale the data, then save the preprocessing objects.
-3. **Train**: Tune and compare XGBoost, CatBoost, and LightGBM.
-4. **Deploy**: Save the best model (LightGBM), its decision threshold, and a SHAP explainer.
-5. **Upload**: Load a customer CSV file into the Streamlit app.
-6. **Analyze**: Review churn statistics, customer segments, and individual predictions with explanations.
-7. **Simulate**: Use the What-If tool to test retention strategies for a specific customer.
+1. **Data Exploration** — Analyze the IBM Telco Customer Churn dataset to understand customer characteristics and churn patterns.
+2. **Data Preparation** — Clean missing values, encode categorical variables, scale numerical features, and prepare model inputs.
+3. **Feature Analysis** — Evaluate feature relevance using Mutual Information and Random Forest feature importance.
+4. **Model Training** — Train, tune, and compare XGBoost, CatBoost, and LightGBM.
+5. **Model Selection** — Select LightGBM for deployment and save the trained model and preprocessing components.
+6. **Customer Analysis** — Upload a customer CSV file and explore churn statistics, risk segments, and individual predictions.
+7. **Prediction Explanation** — Use SHAP to understand the factors contributing to each prediction.
+8. **Retention Simulation** — Modify selected customer attributes and compare the resulting predicted churn risk.
 
 ## Project Objectives
 
-- Predict customer churn accurately with Machine Learning.
-- Compare several gradient boosting algorithms and deploy the best one.
-- Explain every prediction so business users can trust it.
-- Segment customers by risk to focus retention efforts.
-- Let users test retention strategies before applying them.
-- Present the results through an easy-to-use web dashboard.
+- Develop a Machine Learning system to predict customer churn.
+- Compare multiple gradient boosting algorithms and select a suitable deployment model.
+- Identify customers with a high predicted probability of leaving.
+- Explain individual model predictions using Explainable AI.
+- Segment customers according to their predicted churn risk.
+- Simulate potential retention strategies through What-If analysis.
+- Present predictive insights through an interactive business analytics dashboard.
+- Support proactive, data-driven customer retention decisions.
 
 ## Key Learning Outcomes
 
 This project provided practical experience in:
 
-- Exploratory data analysis and correlation analysis.
-- Data cleaning, encoding, and feature scaling.
-- Feature selection with Mutual Information and Random Forest importance.
-- Training and tuning XGBoost, CatBoost, and LightGBM.
-- Handling imbalanced classes and choosing a business-focused decision threshold.
-- Evaluating classifiers with precision, recall, F1 score, and ROC-AUC.
-- Explaining model predictions with SHAP.
-- Building a multi-page interactive dashboard with Streamlit and Plotly.
-- Saving and reusing a full ML pipeline with Joblib.
+- Exploratory Data Analysis and correlation analysis.
+- Data cleaning, preprocessing, encoding, and feature scaling.
+- Feature selection using Mutual Information and Random Forest importance.
+- Training and hyperparameter tuning of XGBoost, CatBoost, and LightGBM.
+- Handling class imbalance and selecting business-oriented decision thresholds.
+- Evaluating classification models using accuracy, precision, recall, F1 score, and ROC-AUC.
+- Interpreting Machine Learning predictions using SHAP.
+- Developing interactive multi-page applications with Streamlit and Plotly.
+- Saving and loading trained models and preprocessing objects using Joblib.
+- Applying predictive analytics to practical customer retention problems.
 
 ## Future Improvements
 
 Potential enhancements include:
 
-- Combine the three models in a stacking or voting ensemble.
-- Add customer lifetime value to rank customers by revenue at risk.
-- Recommend the best retention action for each customer automatically.
-- Connect to a live database or CRM instead of CSV uploads.
-- Send email or Slack alerts when a high-value customer becomes At Risk.
-- Track model performance and data drift over time.
-- Serve predictions through a REST API (FastAPI) and deploy to the cloud.
-- Package the app with Docker.
+- Combining multiple models through stacking or voting ensembles.
+- Integrating customer lifetime value to estimate revenue at risk.
+- Developing automated, model-based retention action recommendations.
+- Connecting the application to live databases and customer relationship management systems.
+- Introducing email or Slack alerts for high-value customers with elevated churn risk.
+- Monitoring model performance and data drift over time.
+- Exposing prediction capabilities through a REST API using FastAPI.
+- Containerizing the application with Docker for easier deployment.
+- Improving automated data validation and preprocessing for uploaded customer datasets.
 
 ## Conclusion
 
-The Customer Churn Prediction System shows how Machine Learning and Explainable AI can turn customer data into clear, actionable insight. It goes beyond predicting who will leave: it explains why and lets the business test how to keep them.
+The Customer Churn Prediction System demonstrates how Machine Learning and Explainable AI can help businesses move beyond historical customer reporting toward proactive retention management.
 
-By combining churn prediction, customer segmentation, SHAP explanations, and What-If simulation in one dashboard, the project helps businesses act early and keep more of their customers.
+By combining churn prediction, customer risk segmentation, SHAP-based explanations, and What-If simulation, the platform provides an integrated environment for understanding customer behavior and evaluating potential retention strategies.
 
-*Developed as a practical project exploring Machine Learning, Explainable AI, and customer analytics.*
+The project highlights the practical value of combining predictive analytics with interpretable AI to transform customer data into meaningful business insights.
+
+---
+
+**Developed as a practical project exploring Machine Learning, Explainable AI, predictive analytics, and customer retention strategies.**
